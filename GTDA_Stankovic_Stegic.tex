@@ -1,0 +1,53 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+\setcounter{tocdepth}{1}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+\usepackage{amsmath}
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+\newtheorem{definicija}[primer]{Definicija}
+
+\graphicspath{{./slike/}}
+
+\begin{document}
+
+\title{Analiza podataka o globalnom terorizmu \\ \small{~\\Seminarski rad u okviru kursa\\Istraživanje podataka\\ Matematički fakultet}}
+
+\author{
+	Una Stanković, Uroš Stegić\\
+	una\_stankovic@yahoo.com, urosstegic@gmx.com}
+\date{16.~maj 2017.}
+\maketitle
+
+\abstract{U radu će biti predstavljena analiza podataka o globalnom terorizmu dobijena primenom metoda i tehnika obrađenih na kursu Istraživanje podataka.}
+	
+
+\tableofcontents
+
+\newpage
+
+
+\section{Uvod}
+\label{sec:uvod}
+\section{Zaključak}
+\label{sec:zakljucak}
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{seminarski} 
+\bibliographystyle{plain}
+
+
+\end{document}

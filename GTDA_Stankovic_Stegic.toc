@@ -1,4 +1,0 @@
-\select@language {serbian}
-\contentsline {section}{\numberline {1}Uvod}{2}{section.1}
-\contentsline {section}{\numberline {2}Zaklju\IeC {\v c}ak}{2}{section.2}
-\contentsline {section}{Literatura}{2}{section.2}

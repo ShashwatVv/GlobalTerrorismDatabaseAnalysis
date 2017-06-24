@@ -3,27 +3,27 @@ import pandas as pd
 import sklearn.metrics as met
 from sklearn import preprocessing
 from sklearn.cluster import DBSCAN
-import matplotlib.pyplot as plt
 
-df = pd.read_csv("backup_preimenovano.csv")
+df = pd.read_csv("datasets/backup2_preimenovano.csv")
 
 #prikaz imena kolona + 5 prvih instanci
 print('Prvih 5 instanci', df.head(), sep='\n')
 print('\n\n')
 
-featurs = df.columns[1:3].tolist()
-x_original=df[featurs]
+features = df.columns[1:12].tolist()
+x_original=df[features]
+
+#bez preprocesiranja
+#x = x_original
 
 #standardizacija atributa
 x=pd.DataFrame(preprocessing.scale(x_original))
 
-
-exit()
 #normalizacija
 #x=pd.DataFrame(preprocessing.MinMaxScaler().fit_transform(x_original))
 
 #dodeljivanje imena kolonama
-x.columns = featurs
+x.columns = features
 
 """
 Density-Based Spatial Clustering of Applications with Noise
@@ -46,12 +46,6 @@ labels_ : oznake klastera za svaku instancu. Instance koje se smatraju sumom ima
 oznaku -1
 """
 
-
-colors = ['darkcyan', 'magenta', 'gold', 'blue', 'navy', 'green', 'red']
-
-fig = plt.figure()
-
-plt_ind=1
 for eps in range(3, 8):
     for min_samples in range(2, 4):
         est=DBSCAN(eps=eps*0.1, min_samples=min_samples)
@@ -59,22 +53,3 @@ for eps in range(3, 8):
         df['labels']= est.labels_
         num_clusters=max(est.labels_)+1
 
-        fig.add_subplot(5,2,plt_ind)
-        for j in range(-1,num_clusters):
-            cluster= df.loc[lambda x: x['labels'] == j, :]
-            #cluster= df.loc[lambda x: x['labels'] == j, 'height':'labels']
-
-            #print(cluster)
-            #print('\n\n\n')
-            if j==-1:
-                label='nois'
-            else:
-                label = "cluster %d" % j
-            plt.scatter(cluster['height'], cluster['weight'], color=colors[j], s=10, marker='o', label=label)
-
-        plt.legend(loc='lower right',fontsize=6)
-        plt.title('DBSCAN, eps:%.2f, min samples: %d'%(eps*0.1, min_samples), fontsize=10)
-        plt_ind+=1
-
-plt.tight_layout()
-plt.show()

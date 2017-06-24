@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import numpy as np
 import pandas as pd
 import json
@@ -10,7 +8,7 @@ pd.options.mode.chained_assignment = None
 import plotly.plotly as py
 import plotly.graph_objs as go
 
-terror_data = pd.read_csv('globalterrorismdb_0616dist.csv', encoding='ISO-8859-1', usecols=[0, 1, 2, 3, 8, 11, 13, 14, 29, 35, 84, 100, 103])
+terror_data = pd.read_csv('datasets/globalterrorismdb_0616dist.csv', encoding='ISO-8859-1', usecols=[0, 1, 2, 3, 8, 11, 13, 14, 29, 35, 84, 100, 103])
 terror_data = terror_data.rename(columns={'eventid'         :'id',
                                           'iyear'           :'year',
                                           'imonth'          :'month',

@@ -1,13 +1,11 @@
-#!/usr/bin/env python
-
 import json
 
 print 'Prebacivanje kolona'
 
-f_back = open('backup.csv','r')
+f_back = open('datasets/backup.csv','r')
 
-f_pre = open('backup_preimenovano.csv','w')
-f_mapa = open('mapa_preimenovanih.json','w')
+f_pre = open('datasets/backup_preimenovano.csv','w')
+f_mapa = open('datasets/mapa_preimenovanih.json','w')
 
 prva_linija = f_back.readline()
 svi_podaci = []

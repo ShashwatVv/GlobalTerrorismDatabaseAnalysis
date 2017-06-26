@@ -26,7 +26,7 @@
 
 \author{
 	Una Stanković, Uroš Stegić\\
-	una\_stankovic@yahoo.com, urosstegic@gmx.com}
+	una\_stankovic@yahoo.com, mi10287@alas.matf.bg.ac.rs}
 \date{16.~maj 2017.}
 \maketitle
 
@@ -59,42 +59,42 @@ U ovoj sekciji predstavićemo analizu podataka na osnovu informacija o globalnom
 Informacije dobijene u .csv fajlu sadržale su izuzetno veliki skup atributa, što je osnovni razlog da izvršimo prečišćavanje. Prečišćavanje podataka spada u fazu pretprocesiranja podataka, koje podrazumeva pripremu podataka pre same primene metoda istraživanja podataka. Odlučili smo da, zbog velike količine atributa, odbacimo one koji nemaju prevelik uticaj na analizu i bez kojih se vidljivost ponašanja podataka ne gubi.
 
 Postupak koji smo pratili prilikom prečišćavanja:
-\begin{enumerate}
-	\item izabrali smo podskup atributa koji nam je pogodan za analizu 
-	\item izabrali smo skup od 13 atributa za koje smatrali da nam mogu biti od koristi: 
+\begin{enumerate} 
+	\item izabrali smo podskup od 13 atributa za koje smatrali da nam mogu biti od koristi: 
 	\begin{itemize}
-		\item \textbf{id} -
-		\item \textbf{year} -
-		\item \textbf{month} -
-		\item \textbf{day} -
-		\item \textbf{country} -
-		\item \textbf{state} -
-		\item \textbf{target} -
-		\item \textbf{attack} -
-		\item \textbf{weapon} -
-		\item \textbf{fatalities} -
-		\item \textbf{injuries} -\\
+		\item \textbf{id} -,
+		\item \textbf{year} -,
+		\item \textbf{month} -,
+		\item \textbf{day} -,
+		\item \textbf{country} -,
+		\item \textbf{state} -,
+		\item \textbf{target} -,
+		\item \textbf{attack} -,
+		\item \textbf{weapon} -,
+		\item \textbf{fatalities} -,
+		\item \textbf{injuries} -,\\
 	\end{itemize}
-	Napomena: ulaz u same algoritme cine svi atributi osim atributa it 
-\item izbačene su sve instance koje sadrže nedostajuće vrednosti, nakon čega je ostalo 115 617 instanci
-\item napisali smo skirptu kojom smo imenske atribute koji su bili u teksutalnom obliku preveli u numeričke vrednosti 
+	Napomena: ulaz u same algoritme cine svi atributi osim atributa koji se odnosi na id. 
+\item izbacili smo sve instance koje sadrže nedostajuće vrednosti, nakon čega je ostalo 115 617 instanci,
+\item napisali smo skirptu kojom smo imenske atribute koji su bili u teksutalnom obliku preveli u numeričke vrednosti.
 
 \end{enumerate}
 
-
 \subsection{Korelacija}
   
-Podaci su dosta nezavisni, većina atributa nije korelirana, drugim rečima, koeficijent korelacije većine atributa se nalazi u intervalu $($ $-10^{-2}$, $10^{-2}$ $)$ sa najvećom koncentracijom oko nule. Od 66 parova atributa, mi imamo 17 koji su iz tog intervala, 7 koji su neke značajnije korelacije, a sve ostalo su nule. Od značajnijih korelacija izdvajamo sledeće: 
+Podaci su dosta nezavisni, većina atributa nije korelirana, drugim rečima, koeficijent korelacije većine atributa se nalazi u intervalu $($ $-10^{-2}$, $10^{-2}$ $)$ sa najvećom koncentracijom oko nule. Od 66 parova atributa, mi imamo 17 koji su iz tog intervala bez nule, 7 koji su neke značajnije korelacije, a sve ostalo su nule. Od značajnijih korelacija izdvajamo sledeće: 
 \begin{itemize} 
 	\item godina-longituda (0.52): \\ Naime, sa proticanjem godina teroristički napadi se događaju sve zapadnije.\\ Napomena: postoji i korelacija između godine i latitude i ona iznosi 0.19 
 	\item vrsta napada-vrsta oružja (0.52): \\ Ova korelacija je očekivana, jer se za različite vrste napada koriste odgovarajuće vrste oružja, na primer bombaški napad podrazumeva korišćenje bombe ili drugih eksplozivnih sredstava. 
 	\item broj povređenih-broj poginulih (0.39) \\ Ovakav odnos se objašnjava time da postoji određena veza između broja povređenih i poginulih. 
-	\item vrsta mete - napad 0.2 \\ Očekivano je da se određene mete napadaju odgovarajućom tehnikom napada, na primer besmisleno je razmatrati napad vojnog ili civilnog objekta hladnim oružjem.\\ 
+	\item vrsta mete - napad (0.2) \\ Očekivano je da se određene mete napadaju odgovarajućom tehnikom napada, na primer besmisleno je razmatrati napad vojnog ili civilnog objekta hladnim oružjem.\\ 
 \end{itemize}
 
 Ovom analizom smo došli kako do očekivanih, tako i do neočekivanih korelacija. S obzirom da se veliki broj terorističkih napada u početku odigravao u predelima Indije, Bliskog istoka i istočnih zemalja, iznenađuje korelacija koja nam ukazuje na to da se u poslednjih nekoliko godina ti napadi pomeraju sve zapadnije, prvenstveno ka Evropi i Americi. Ova korelacija nam može biti dosta korisna, u smislu da nam može pomoći pri uočavanju trenda kretanja i predviđanja budućih napada.
 
 \subsection{Analiza raspodele oružja}
+
+
 
 Na narednoj slici biće prikazana zastupljenost različitih vidova oružja.
 \begin{figure}[h!]

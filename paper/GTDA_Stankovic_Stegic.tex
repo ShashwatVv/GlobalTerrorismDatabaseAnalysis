@@ -49,7 +49,6 @@ Terorizam ima veliki uticaj u međunarodnim odnosima i ekonomiji, a poslednjih n
 \subsection{O podacima}
 Baza podataka o globalnom terorizmu (engl. The Global Terrorism Database - GTD) je baza otvorenog koda koja uključuje sistematski organizovane podatke koji sadrže informacije o preko 150 000 terorističkih napada, u periodu od 1970. godine do 2015. godine. U okviru baze je sadržano preko stotinu atributa koje se odnose na lokaciju, taktike, mete, ishode i ostale relevantne informacije. Ova baza o internacionalnim terorističkim incidentima se održava od strane istraživača na Univerzitetu u Merilendu (SAD).
 
-\newpage
 \section{Analiza podataka}
 \label{sec:analiza}
 
@@ -114,40 +113,51 @@ Za svaki period hoćemo da prikažemo sumarnu statistiku zastupljenosti vrste or
 
 \subsection{Klasetovanje}
 
-Na kraju, predstavićemo klaster analizu svih podataka. 
-\begin{figure}[h!]
+Na kraju, predstavićemo klaster analizu svih podataka.\\
+S obzirom na činjenicu da ne možemo sa sigurnošću odrediti broj klastera i na osnovu činjenice da je skup trening instanci dovoljno gust (u odnosu na dimenzionalnost podataka), odlučili smo da za klasterovanje koristimo DBSCAN.	\\
+
+Ukoliko prilikom klasterovanja zahtevamo veću gustinu (kao što je prikazano na slici \ref{fig:epsmanje}), instance koji se izdvajaju predstavljaju napade koji su se desili u Indiji i na Bliskom istoku, na osnovu čega zaključujemo da nema značajnih razlika među napadima u tim regionima. \\
+
+Ukoliko se zahteva manja gustina (kao što je prikazano na slici \ref{fig:epsvece}), ne mogu se primetiti značajnije pravilnosti, izuzev toga da postoji razlika u napadima po kontinentima, takva da napadi u Evropi i Africi imaju sličniji karakter u odnosu na napade koji su se dogodili u Aziji.\\
+   
+\begin{figure}
 \centering
-\begin{subfigure}[a]{0.4\textwidth}
-	\includegraphics[width=\textwidth]{zastupljenost.png}
-	\caption{Prva}
+\begin{subfigure}[h!]{\textwidth}
+	\includegraphics[width=\textwidth]{02_010.png}
+	\caption{eps=2, samples=10}
 \end{subfigure} 
-\begin{subfigure}[b]{0.4\textwidth}
-	\includegraphics[width=\textwidth]{zastupljenost.png}
-	\caption{Prva}
+\begin{subfigure}[h!]{\textwidth}
+	\includegraphics[width=\textwidth]{08_080.png}
+	\caption{eps=8, samples=80}
+\end{subfigure}
+\caption{Tačkasti dijagrami DBSCAN klasterovanja ($eps <= 8$ )}
+\label{fig:epsmanje}
+\end{figure} 
+
+\begin{figure}
+\centering  
+\begin{subfigure}[h!]{\textwidth}
+	\includegraphics[width=\textwidth]{09_080.png}
+	\caption{eps=9, samples=80}
 \end{subfigure} 
-\begin{subfigure}[c]{0.4\textwidth}
-	\includegraphics[width=\textwidth]{zastupljenost.png}
-	\caption{Prva}
+\begin{subfigure}[h!]{\textwidth}
+	\includegraphics[width=\textwidth]{15_200.png}
+	\caption{eps=15, samples=200}
 \end{subfigure} 
-\begin{subfigure}[d]{0.4\textwidth}
-	\includegraphics[width=\textwidth]{zastupljenost.png}
-	\caption{Prva}
-\end{subfigure} 
-\caption{Tačkasti dijagrami DBSCAN klasterovanja}
+\caption{Tačkasti dijagrami DBSCAN klasterovanja ($eps > 8$ )}
+\label{fig:epsvece}
 \end{figure} 
 
 
 \newpage
 \section{Zaključak}
 \label{sec:zakljucak}
-Na osnovu podataka koje smo dobili analizom, došli smo do sledećih zaključaka.
-...
-Veliki trud se ulaže u smanjenje globalnog terorizma i nadamo se da će upravo analiza podataka biti od velikog značaja u sprečavanju terorizma u budućnosti i pomoći da se spasu desetine hiljada ljudskih života koji se svake godine ugase isključivo zbog terorizma.
-
-\addcontentsline{toc}{section}{Literatura}
-\appendix
-\bibliography{seminarski} 
-\bibliographystyle{plain}
-
+Na osnovu podataka koje smo dobili analizom, došli smo do sledećih zaključaka:
+\begin{itemize}
+	\item napadi se kreću ka zapadu,
+	\item odnos oružja koje se koristi se ne menja značajno,
+	\item napadi koji se dešavaju u Aziji se razlikuju od napada na zapadu.
+\end{itemize}
+Veliki trud se ulaže u smanjenje globalnog terorizma i nadamo se da će upravo analiza podataka biti od velikog značaja u sprečavanju terorizma u budućnosti i pomoći da se spasu desetine hiljada ljudskih života koji se svake godine ugase isključivo zbog terorizma. Na osnovu prikazanih rezultata, u budućim istraživanjima je moguće izgraditi regresione modele, kojima bi se vršila predikcija manje bezbednih zona i dao uvid u efikasnije mere odbrane od terorizma. 
 
 \end{document}

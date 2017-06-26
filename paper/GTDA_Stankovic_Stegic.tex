@@ -7,7 +7,7 @@
 %\usepackage[T2A]{fontenc} % enable Cyrillic fonts
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
-
+\usepackage{caption}
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
 \setcounter{tocdepth}{1}
@@ -17,7 +17,7 @@
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
 \newtheorem{definicija}[primer]{Definicija}
-
+\captionsetup[figure]{name=Grafik}
 \graphicspath{{./images/}}
 
 \begin{document}
@@ -94,12 +94,21 @@ Ovom analizom smo došli kako do očekivanih, tako i do neočekivanih korelacija
 
 \subsection{Analiza raspodele oružja}
 
+Razmotrimo sada raspodelu upotrebljenog oružja od 1970. do 2015. godine. S obzirom na vremenski period koji posmatramo, zarad bolje preglednosti, odabrali smo nekoliko ``prirodnih'' intervala na koje možemo podeliti sledeće periode: 
+\begin{itemize}
+	\item 1970-1980
+	\item 1981-1990
+	\item 1991-2000
+	\item 2001-2015\\ 
+\end{itemize} 
+godine.\\
+Za svaki period hoćemo da prikažemo sumarnu statistiku zastupljenosti vrste oružja. Posmatrajmo sada grafik \ref{fig:oruzja}. Već na prvi pogled se uočava da je raspodela oružja po periodima na koje smo podelili interval veoma slična. Naime, u napadima se ``tradicionalno'' koriste vatreno oružje i eksplozivi, nešto ređe zapaljivo oružje i borba ``prsa u prsa'', a retko se koriste hemijsko, lažno i ostalo oružje.
 
-
-Na narednoj slici biće prikazana zastupljenost različitih vidova oružja.
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{zastupljenost.png}
 \centering
+\includegraphics[width=\textwidth]{zastupljenost.png}
+\caption{Raspodela zastupljenosti vrsta oružja}
+\label{fig:oruzja}
 \end{figure} 
 
 \newpage

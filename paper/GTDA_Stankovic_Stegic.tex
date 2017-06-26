@@ -62,17 +62,17 @@ Postupak koji smo pratili prilikom prečišćavanja:
 \begin{enumerate} 
 	\item izabrali smo podskup od 13 atributa za koje smatrali da nam mogu biti od koristi: 
 	\begin{itemize}
-		\item \textbf{id} -,
-		\item \textbf{year} -,
-		\item \textbf{month} -,
-		\item \textbf{day} -,
-		\item \textbf{country} -,
-		\item \textbf{state} -,
-		\item \textbf{target} -,
-		\item \textbf{attack} -,
-		\item \textbf{weapon} -,
-		\item \textbf{fatalities} -,
-		\item \textbf{injuries} -,\\
+		\item \textbf{id} - numerički atribut, sistem za zapisivanje id-ja događaja se sastoji iz 12 cifara u formatu yyyymmdd gde yyyy označava godinu, mm mesec i dd dan kada se događaj odigrao,
+		\item \textbf{year} - numerički atribut, označava godinu u kojoj se incident dogodio, u slučaju da je incident trajao duži vremenski period, uzima se godina prvog događaja,
+		\item \textbf{month} - numerički atribut, označava mesec u kojoj se incident dogodio. U slučaju da je incident trajao duži vremenski period, uzima se mesec prvog događaja, a u slučaju da se ne zna tačan mesec početka stavlja se 0,
+		\item \textbf{day} - numerički atribut, označava dan u kojoj se incident dogodio. U slučaju da je incident trajao duži vremenski period, uzima se dan prvog događaja, a u slučaju da se ne zna tačan dan početka stavlja se 0,
+		\item \textbf{country} - kategorički atribut, označava državu ili lokaciju gde se incident desio,
+		\item \textbf{state} - imenski atribut, označava prvu nenacionalnu regiju gde se događaj odigrao,
+		\item \textbf{target} - kategorički atribut, označava uopšteni vid mete ili žrtve,
+		\item \textbf{attack} - kategorički atribut, označava generalni vid napada i, neretko, širi skup taktika primenjenih pri napadu. Za svaki incident može se sačuvati do 3 taktike.
+		\item \textbf{weapon} - kategorički atribut, po incidentu se može sačuvati do 4 vrste oružja korišćenih pri napadu,
+		\item \textbf{fatalities} - numerički atribut, označava zvanični broj ljudi koji su izgubili život pri napadu,
+		\item \textbf{injuries} - numerički atribut, predstavlja broj potvrđenih povređenih osoba sa obe strane.\\
 	\end{itemize}
 	Napomena: ulaz u same algoritme cine svi atributi osim atributa koji se odnosi na id. 
 \item izbacili smo sve instance koje sadrže nedostajuće vrednosti, nakon čega je ostalo 115 617 instanci,

@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
 \setcounter{tocdepth}{1}
@@ -110,6 +111,31 @@ Za svaki period hoćemo da prikažemo sumarnu statistiku zastupljenosti vrste or
 \caption{Raspodela zastupljenosti vrsta oružja}
 \label{fig:oruzja}
 \end{figure} 
+
+\subsection{Klasetovanje}
+
+Na kraju, predstavićemo klaster analizu svih podataka. 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[a]{0.4\textwidth}
+	\includegraphics[width=\textwidth]{zastupljenost.png}
+	\caption{Prva}
+\end{subfigure} 
+\begin{subfigure}[b]{0.4\textwidth}
+	\includegraphics[width=\textwidth]{zastupljenost.png}
+	\caption{Prva}
+\end{subfigure} 
+\begin{subfigure}[c]{0.4\textwidth}
+	\includegraphics[width=\textwidth]{zastupljenost.png}
+	\caption{Prva}
+\end{subfigure} 
+\begin{subfigure}[d]{0.4\textwidth}
+	\includegraphics[width=\textwidth]{zastupljenost.png}
+	\caption{Prva}
+\end{subfigure} 
+\caption{Tačkasti dijagrami DBSCAN klasterovanja}
+\end{figure} 
+
 
 \newpage
 \section{Zaključak}

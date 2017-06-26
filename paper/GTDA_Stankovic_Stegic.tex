@@ -18,7 +18,7 @@
 \newtheorem{primer}{Primer}[section]
 \newtheorem{definicija}[primer]{Definicija}
 
-\graphicspath{{./slike/}}
+\graphicspath{{./images/}}
 
 \begin{document}
 
@@ -30,8 +30,6 @@
 \date{16.~maj 2017.}
 \maketitle
 
-\abstract{U radu će biti predstavljena analiza podataka o globalnom terorizmu dobijena primenom metoda i tehnika obrađenih na kursu Istraživanje podataka.}
-	
 
 \tableofcontents
 
@@ -40,13 +38,71 @@
 
 \section{Uvod}
 \label{sec:uvod}
-Terorizam je pojam koji se u poslednjih 50 godina sve češće javlja,a posebno u formi globalni terorizam, zato što je terorizam pojava koja je zahvatila ceo svet.\\\\ Prema jednoj od definicija \textit{terorizam je smišljena upotreba nezakonitog nasilja ili pretnje nasiljem radi usađivanja straha, sa namerom prisiljavanja ili zastrašivanja vlasti ili društva, kako bi se postigli najčešće politički verski ili ideološki ciljevi.} \\\\
+Terorizam je pojam koji se u poslednjih 50 godina sve češće javlja,a posebno u formi globalni terorizam, zato što je terorizam pojava koja je zahvatila ceo svet. U radu će biti predstavljena analiza baze podataka, otvorenog koda, o globalnom terorizmu, dobijena primenom metoda i tehnika obrađenih na kursu Istraživanje podataka.\\\\ 
+\subsection{Terorizam}
+Prema jednoj od definicija \textit{terorizam je smišljena upotreba nezakonitog nasilja ili pretnje nasiljem radi usađivanja straha, sa namerom prisiljavanja ili zastrašivanja vlasti ili društva, kako bi se postigli najčešće politički verski ili ideološki ciljevi.} \\\\
 Posmatrajući globalni nivo, ne postoji nijedna država na svetu koja je imuna na terorizam. On je poput bolesti koja počne iz jednog centra, a potom se širi na sve veće i veće oblasti. U početku je terorizam bio motivisan težnjama ka slobodi, borbama za nacionalno oslobođenje, borbi protiv režima, ali, vremenom, terorizam je poprimio nove, mnogo brutalnije i opasnije oblike.\\
 Jedna od najvećih opasnosti terorizma, i jedan od razloga zašto je terorizam veoma opaka $"$bolest$"$, leži u tome što on direktno ugrožava unutrašnju i međunarodnu bezbednost, ali kao najgoru posledicu od svih, on ugrožava bezbednost pojedinca. Posmatrajući terorizam makar i u samo poslednjih nekoliko godina, iako on ni po čemu nije novost, jer se, u relativno savremenom obliku, javio još 1950-ih godina, možemo uočiti da je zahvatio ceo svet i da više niko ne može da se oseća apsolutno bezbedno. Teroristima više nisu glavne mete državne zgrade, zvaničnici ili velike kompanije, već su mete što širi dijapazon ljudi, bez obzira na poreklo, profesiju, religiju ili rasu. Poruka koju teroristi današnjice žele da pošalju je - niko nije bezbedan. \\\\
 Terorizam ima veliki uticaj u međunarodnim odnosima i ekonomiji, a poslednjih nekoliko godina aktivno utiče na promenu demografske slike Evrope i izaziva kontroverzne i, često, nehumane reakcije mnogih država Evropske unije, kao i stvaranje neonacističkih i ultranacionalističkih pokreta koji se aktivno bore protiv imigranata. Osim ovakvih grupa, aktivan je porast i u broju terorističkih organizacija i njihovih članova, koji popularizacijom, dostupnošću pristupa i anonimnosti na internetu uspevaju da dopru do novih, sve mlađih, članova.\\ Upravo zbog ogromnog uticaja koji terorizam ima na stvaranje novog svetskog poretka veoma je važno vršiti analizu podataka o terorističkim napadima, kako bi se došlo do zaključaka u kom pravcu se terorizam kreće, koliku štetu nanosi, kakve promene donosi, koliko života odnosi i kako će se u budućnosti razvijati, sa ciljem da se budući napadi lakše predvide, preduprede i spreče, ili da se barem broj budućih žrtava svede na minimum.
 
+\subsection{O podacima}
+Baza podataka o globalnom terorizmu (engl. The Global Terrorism Database - GTD) je baza otvorenog koda koja uključuje sistematski organizovane podatke koji sadrže informacije o preko 150 000 terorističkih napada, u periodu od 1970. godine do 2015. godine. U okviru baze je sadržano preko stotinu atributa koje se odnose na lokaciju, taktike, mete, ishode i ostale relevantne informacije. Ova baza o internacionalnim terorističkim incidentima se održava od strane istraživača na Univerzitetu u Merilendu (SAD).
+
+\newpage
+\section{Analiza podataka}
+\label{sec:analiza}
+
+U ovoj sekciji predstavićemo analizu podataka na osnovu informacija o globalnom terorizmu dobijenih iz baze primenom metoda koji su rađeni na kursu Istraživanje podataka. 
+
+\subsection{Prečišćavanje podataka}
+
+Informacije dobijene u .csv fajlu sadržale su izuzetno veliki skup atributa, što je osnovni razlog da izvršimo prečišćavanje. Prečišćavanje podataka spada u fazu pretprocesiranja podataka, koje podrazumeva pripremu podataka pre same primene metoda istraživanja podataka. Odlučili smo da, zbog velike količine atributa, odbacimo one koji nemaju prevelik uticaj na analizu i bez kojih se vidljivost ponašanja podataka ne gubi.
+
+Postupak koji smo pratili prilikom prečišćavanja:
+\begin{enumerate}
+	\item izabrali smo podskup atributa koji nam je pogodan za analizu 
+	\item izabrali smo skup od 13 atributa za koje smatrali da nam mogu biti od koristi: 
+	\begin{itemize}
+		\item \textbf{id} -
+		\item \textbf{year} -
+		\item \textbf{month} -
+		\item \textbf{day} -
+		\item \textbf{country} -
+		\item \textbf{state} -
+		\item \textbf{target} -
+		\item \textbf{attack} -
+		\item \textbf{weapon} -
+		\item \textbf{fatalities} -
+		\item \textbf{injuries} -\\
+	\end{itemize}
+	Napomena: ulaz u same algoritme cine svi atributi osim atributa it 
+\item izbačene su sve instance koje sadrže nedostajuće vrednosti, nakon čega je ostalo 115 617 instanci
+\item napisali smo skirptu kojom smo imenske atribute koji su bili u teksutalnom obliku preveli u numeričke vrednosti 
+
+\end{enumerate}
 
 
+\subsection{Korelacija}
+  
+Podaci su dosta nezavisni, većina atributa nije korelirana, drugim rečima, koeficijent korelacije većine atributa se nalazi u intervalu $($ $-10^{-2}$, $10^{-2}$ $)$ sa najvećom koncentracijom oko nule. Od 66 parova atributa, mi imamo 17 koji su iz tog intervala, 7 koji su neke značajnije korelacije, a sve ostalo su nule. Od značajnijih korelacija izdvajamo sledeće: 
+\begin{itemize} 
+	\item godina-longituda (0.52): \\ Naime, sa proticanjem godina teroristički napadi se događaju sve zapadnije.\\ Napomena: postoji i korelacija između godine i latitude i ona iznosi 0.19 
+	\item vrsta napada-vrsta oružja (0.52): \\ Ova korelacija je očekivana, jer se za različite vrste napada koriste odgovarajuće vrste oružja, na primer bombaški napad podrazumeva korišćenje bombe ili drugih eksplozivnih sredstava. 
+	\item broj povređenih-broj poginulih (0.39) \\ Ovakav odnos se objašnjava time da postoji određena veza između broja povređenih i poginulih. 
+	\item vrsta mete - napad 0.2 \\ Očekivano je da se određene mete napadaju odgovarajućom tehnikom napada, na primer besmisleno je razmatrati napad vojnog ili civilnog objekta hladnim oružjem.\\ 
+\end{itemize}
+
+Ovom analizom smo došli kako do očekivanih, tako i do neočekivanih korelacija. S obzirom da se veliki broj terorističkih napada u početku odigravao u predelima Indije, Bliskog istoka i istočnih zemalja, iznenađuje korelacija koja nam ukazuje na to da se u poslednjih nekoliko godina ti napadi pomeraju sve zapadnije, prvenstveno ka Evropi i Americi. Ova korelacija nam može biti dosta korisna, u smislu da nam može pomoći pri uočavanju trenda kretanja i predviđanja budućih napada.
+
+\subsection{Analiza raspodele oružja}
+
+Na narednoj slici biće prikazana zastupljenost različitih vidova oružja.
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{zastupljenost.png}
+\centering
+\end{figure} 
+
+\newpage
 \section{Zaključak}
 \label{sec:zakljucak}
 Na osnovu podataka koje smo dobili analizom, došli smo do sledećih zaključaka.
